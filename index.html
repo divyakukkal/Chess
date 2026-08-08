@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess vs Computer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>♟️ Chess vs Computer</h1>
+    <p class="subtitle">You're White. Click a piece, then click where to move it.</p>
+
+    <div class="status-bar">
+      <span id="statusText">Your move</span>
+      <div class="difficulty">
+        Difficulty:
+        <select id="difficultySelect">
+          <option value="1">Easy</option>
+          <option value="2" selected>Medium</option>
+          <option value="3">Hard</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="board" class="board"></div>
+
+    <div class="controls">
+      <button id="restartBtn">🔄 New Game</button>
+      <button id="undoBtn">↩️ Undo Move</button>
+    </div>
+
+    <div id="gameOverMessage" class="game-over hidden">
+      <h2 id="gameOverText"></h2>
+      <button id="playAgainBtn">Play Again</button>
+    </div>
+  </div>
+
+  <!-- Chess rules engine (handles legal moves, check, checkmate, castling, etc.) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
