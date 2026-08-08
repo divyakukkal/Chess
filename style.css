@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #2c2c54 0%, #474787 100%);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 30px 16px;
+}
+
+.container {
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  color: #d4d4f0;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}
+
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.difficulty select {
+  margin-left: 6px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.6rem, 6vw, 2.4rem);
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+.square.light {
+  background: #f0d9b5;
+}
+
+.square.dark {
+  background: #b58863;
+}
+
+.square.selected {
+  background: #7fc97f !important;
+}
+
+.square.legal-move::after {
+  content: "";
+  position: absolute;
+  width: 22%;
+  height: 22%;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.square.legal-capture {
+  box-shadow: inset 0 0 0 4px rgba(220, 60, 60, 0.6);
+}
+
+.square.last-move {
+  background: #f7ec6e !important;
+}
+
+.controls {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+button {
+  background: white;
+  color: #474787;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.game-over {
+  margin-top: 20px;
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.game-over h2 {
+  margin-top: 0;
+  color: #474787;
+}
+
+.hidden {
+  display: none;
+}
